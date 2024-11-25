@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blog de películas">
+    <title>Blog de Películas</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <header>
+        <h1>Blog de Películas</h1>
+        <p>¡Descubre, comenta y comparte tus películas favoritas!</p>
+    </header>
+    <div class="container">
+        <!-- Formulario para crear nuevos posts -->
+        <div class="post-form">
+            <h2>Crear Nuevo Post</h2>
+            <form id="newPostForm">
+                <label for="title">Título de la película:</label>
+                <input type="text" id="title" placeholder="Ingresa el título" required>
+
+                <label for="image">Link de la imagen:</label>
+                <input type="url" id="image" placeholder="Ingresa la URL de la imagen" required>
+
+                <label for="description">Descripción:</label>
+                <textarea id="description" rows="3" placeholder="Escribe una breve descripción" required></textarea>
+
+                <button type="submit">Publicar</button>
+            </form>
+        </div>
+
+        <!-- Contenedor donde se agregarán los posts dinámicos -->
+        <div id="postsContainer">
+            <div class="post">
+                <h2>Película: El Gran Escape</h2>
+                <img src="https://imgs.search.brave.com/Izg_ox_LQ7GuxpEZT2IKWepjhaUIpfQ0eOGN0OHDYko/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL00v/TVY1QlpHUmtZMkpq/T1RZdE1qZGlOeTAw/WldSbExXRTJaRE10/TXpOa016STBORE0w/TW1KbFhrRXlYa0Zx/Y0dkZVFWUm9hWEpr/VUdGeWRIbEpibWRs/YzNScGIyNVhiM0py/Wm14dmR3QEAuX1Yx/X1FMNzVfVVkyODFf/Q1IwLDAsNTAwLDI4/MV8uanBn" alt="Imagen de El Gran Escape">
+                <p>
+                    Una emocionante película de acción y aventura sobre un grupo de prisioneros que planean una fuga masiva durante la Segunda Guerra Mundial.
+                </p>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>Blog de Películas para el laboratorio &copy; 2024</p>
+    </footer>
+    <script>
+       // Seleccionamos el formulario del HTML y lo guardamos en la variable "newPostForm".
+            // Este formulario es donde el usuario escribe el título, la imagen y la descripción del nuevo post.
+            const newPostForm = document.getElementById('newPostForm');
+
+            // Seleccionamos el contenedor del HTML donde queremos que aparezcan los nuevos posts.
+            // Este contenedor está identificado con el atributo "id=postsContainer".
+            const postsContainer = document.getElementById('postsContainer');
+
+            // Ahora le añadimos un "escuchador de eventos" (Event Listener) al formulario.
+            // Este evento detectará cuándo el usuario hace clic en el botón de "submit" del formulario.
+            // Al detectar el evento, ejecutará la función que definimos a continuación.
+            newPostForm.addEventListener('submit', function (event) {
+                // Evitamos que el formulario recargue la página.
+                // Por defecto, cuando se envía un formulario HTML, la página se recarga.
+                // Este método `preventDefault()` desactiva ese comportamiento para que podamos controlar qué pasa.
+                event.preventDefault();
+
+                // **PASO 1: OBTENEMOS LOS DATOS QUE EL USUARIO ESCRIBIÓ EN EL FORMULARIO**
+
+                // Aquí seleccionamos el campo del título por su ID y obtenemos el valor escrito por el usuario.
+                const title = document.getElementById('title').value;
+
+                // Aquí hacemos lo mismo, pero para el campo donde el usuario ingresó el link de la imagen.
+                const image = document.getElementById('image').value;
+
+                // Y aquí seleccionamos el campo de descripción y obtenemos el texto escrito por el usuario.
+                const description = document.getElementById('description').value;
+
+                // **PASO 2: CREAMOS UN NUEVO ELEMENTO HTML PARA EL POST**
+
+                // Creamos un nuevo elemento <div> que será el contenedor de nuestro nuevo post.
+                const newPost = document.createElement('div');
+
+                // A este nuevo <div> le asignamos la clase "post" para que tenga el mismo estilo que los posts existentes.
+                newPost.classList.add('post');
+
+                // **PASO 3: AGREGAMOS EL CONTENIDO AL NUEVO POST**
+
+                // Usamos la propiedad `innerHTML` para insertar el contenido dentro del nuevo <div>.
+                // Esto incluye el título, la imagen y la descripción que el usuario escribió.
+                newPost.innerHTML = `
+                    <h2>${title}</h2> <!-- Aquí insertamos el título dinámicamente -->
+                    <img src="${image}" alt="Imagen de ${title}"> <!-- Aquí insertamos la URL de la imagen -->
+                    <p>${description}</p> <!-- Aquí insertamos la descripción -->
+                `;
+
+                // **PASO 4: AÑADIMOS EL NUEVO POST AL CONTENEDOR PRINCIPAL**
+
+                // Ahora tomamos el contenedor de los posts (postsContainer) y le añadimos este nuevo <div>.
+                // Esto hace que el nuevo post aparezca en la página sin necesidad de recargar.
+                postsContainer.appendChild(newPost);
+
+                // **PASO 5: LIMPIAMOS EL FORMULARIO PARA QUE ESTÉ LISTO PARA EL PRÓXIMO POST**
+
+                // Después de crear el nuevo post, limpiamos los campos del formulario.
+                // Esto se hace usando el método `reset()`, que borra todo lo que el usuario escribió.
+                newPostForm.reset();
+            });
+    </script>
+</body>
+</html>

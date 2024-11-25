@@ -1,0 +1,136 @@
+/* General */
+* {
+    margin: 0; /* Elimina márgenes predeterminados de todos los elementos */
+    padding: 0; /* Elimina paddings predeterminados de todos los elementos */
+    box-sizing: border-box; /* Asegura que padding y border no aumenten el tamaño de los elementos */
+}
+
+body {
+    font-family: 'Roboto', sans-serif; /* Fuente general */
+    margin: 0; /* Elimina cualquier margen global */
+    padding: 0; /* Sin espaciado interno global */
+    background-color: #f7f9fc; /* Fondo gris claro */
+    color: #333; /* Color del texto principal */
+    line-height: 1.6; /* Espaciado entre líneas */
+}
+
+/* Header */
+header {
+    margin: 0; /* Sin margen superior ni inferior */
+    padding: 20px; /* Espaciado interno */
+    background: linear-gradient(45deg, #1f2937, #4fd1c5); /* Fondo degradado */
+    color: white; /* Texto blanco */
+    display: flex; /* Usamos Flexbox para organizar contenido */
+    justify-content: space-between; /* Distribuye elementos en los extremos */
+    align-items: center; /* Centra los elementos verticalmente */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Añade una sombra debajo del header */
+}
+
+header h1 {
+    font-size: 2.5rem; /* Tamaño grande para el título principal */
+    margin: 0; /* Sin margen adicional */
+    text-align: right; /* Alineamos el texto a la derecha */
+    flex: 1; /* El título ocupa el 50% del espacio disponible */
+}
+
+header p {
+    font-size: 1.4rem; /* Tamaño del subtítulo */
+    margin: 0; /* Sin margen adicional */
+    flex: 1; /* El párrafo ocupa el 50% del espacio disponible */
+    text-align: left; /* Alineamos el texto a la izquierda */
+}
+
+/* Contenedor */
+.container {
+    max-width: 900px; /* Ancho máximo del contenedor */
+    margin: 30px auto; /* Centra horizontalmente y añade margen vertical */
+    padding: 0 20px; /* Espaciado interno horizontal */
+}
+
+/* Formulario de nuevo post */
+.post-form {
+    background: #ffffff; /* Fondo blanco */
+    padding: 20px; /* Espaciado interno */
+    margin-bottom: 30px; /* Espaciado debajo del formulario */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
+
+.post-form h2 {
+    color: #1f2937; /* Título en gris oscuro */
+    margin-bottom: 15px; /* Espaciado debajo del título */
+}
+
+.post-form label {
+    display: block; /* Cada etiqueta ocupa su propia línea */
+    font-weight: bold; /* Las etiquetas están en negrita */
+    margin: 10px 0 5px; /* Espaciado entre etiquetas y campos */
+}
+
+.post-form input,
+.post-form textarea,
+.post-form button {
+    width: 100%; /* Los campos ocupan todo el ancho del formulario */
+    padding: 10px; /* Espaciado interno */
+    margin-bottom: 15px; /* Espaciado entre campos */
+    border: 1px solid #ddd; /* Borde ligero */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 1rem; /* Tamaño de texto estándar */
+}
+
+.post-form button {
+    background: #4fd1c5; /* Fondo verde agua */
+    color: white; /* Texto blanco */
+    font-weight: bold; /* Botón en negrita */
+    cursor: pointer; /* Cambia el cursor al pasar el ratón */
+    border: none; /* Sin borde */
+    transition: background 0.3s; /* Suaviza el cambio de color al hacer hover */
+}
+
+.post-form button:hover {
+    background: #34d399; /* Fondo verde más claro al pasar el ratón */
+}
+
+/* Publicaciones */
+.post {
+    background: linear-gradient(135deg, #4fd1c5, #1f2937); /* Fondo degradado */
+    margin-bottom: 30px; /* Espaciado entre publicaciones */
+    padding: 20px; /* Espaciado interno */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    transition: transform 0.3s, box-shadow 0.3s; /* Suaviza transformaciones al hacer hover */
+    color: white; /* Texto blanco */
+}
+
+.post:hover {
+    transform: scale(1.02); /* Aumenta ligeramente el tamaño al pasar el ratón */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
+}
+
+.post img {
+    display: block; /* Asegura que la imagen se comporte como un bloque */
+    margin: 0 auto; /* Centra la imagen horizontalmente */
+    border-radius: 8px; /* Bordes redondeados */
+    max-width: 100%; /* La imagen no puede exceder el ancho del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+}
+
+.post h2 {
+    color: #ffffff; /* Título blanco para destacar sobre el fondo degradado */
+    margin-bottom: 10px; /* Espaciado debajo del título */
+}
+
+/* Pie de página */
+footer {
+    text-align: center; /* Centra el texto horizontalmente */
+    background-color: #1f2937; /* Fondo gris oscuro */
+    color: white; /* Texto blanco */
+    padding: 15px 0; /* Espaciado interno vertical */
+    margin-top: 20px; /* Espaciado entre el contenido y el footer */
+    font-size: 0.9rem; /* Tamaño de texto reducido */
+}
+
+footer p {
+    color: #e2e8f0; /* Texto más claro para contraste */
+}
+
